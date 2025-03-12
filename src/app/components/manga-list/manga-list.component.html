@@ -1,22 +1,47 @@
 <div class="manga-list">
-  <h2>📚 Liste des Meilleurs Mangas</h2>
+  <div class="header-container">
+    <h2>📚 Liste des Meilleurs Mangas</h2>
+    <div class="filter-container">
+      <label for="genre-select">🎭 Filter par genre</label>
+      <select
+        id="genre-select"
+        [(ngModel)]="selectedGenre"
+        (change)="filterByGenre()"
+      >
+        <option [value]="null">Tous</option>
+        <option *ngFor="let genre of genres" [value]="genre.mal_id">
+          {{ genre.name }}
+        </option>
+      </select>
+    </div>
+  </div>
 
   <div class="manga-grid">
-    <div *ngFor="let manga of mangas" class="manga-card" [class.expanded]="expanded[manga.mal_id]">
+    <div
+      *ngFor="let manga of mangas"
+      class="manga-card"
+      [class.expanded]="expanded[manga.mal_id]"
+    >
       <a [routerLink]="'/manga/' + manga.mal_id">
-        <img [src]="manga.images.webp.image_url" [alt]="manga.title">
+        <img [src]="manga.images.webp.image_url" [alt]="manga.title" />
       </a>
-      <h3><a [routerLink]="'/manga/' + manga.mal_id">{{ manga.title }}</a></h3>
+      <h3>
+        <a [routerLink]="'/manga/' + manga.mal_id">{{ manga.title }}</a>
+      </h3>
       <p><strong>⭐ Score :</strong> {{ manga.score }}</p>
 
       <p class="synopsis-container">
         <strong>📖 Synopsis :</strong>
-        {{ expanded[manga.mal_id] ? manga.synopsis : manga.synopsis.substring(0, 150) + '...' }}
+        {{
+          expanded[manga.mal_id]
+            ? manga.synopsis
+            : manga.synopsis.substring(0, 150) + "..."
+        }}
       </p>
     </div>
   </div>
 
   <button (click)="loadMore()" class="load-more-btn" [disabled]="isLoading">
-    {{ isLoading ? 'Chargement...' : 'Charger plus' }}
+    {{ isLoading ? "Chargement..." : "Charger plus" }}
   </button>
 </div>
