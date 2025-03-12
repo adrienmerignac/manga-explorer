@@ -7,8 +7,8 @@ import { SearchBarComponent } from '../search-bar/search-bar.component';
   selector: 'app-header',
   standalone: true,
   imports: [RouterModule, CommonModule, SearchBarComponent], // ✅ Ajout du routing pour les liens
-  templateUrl: './Header.component.html',
-  styleUrls: ['./Header.component.scss'],
+  templateUrl: './header.component.html',
+  styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent {
   navigateToManga(mangaId: number) {
