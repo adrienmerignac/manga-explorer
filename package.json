@@ -1,12 +1,15 @@
 {
   "name": "manga-explorer",
   "version": "0.0.0",
+  "type": "module",
   "scripts": {
+    "dev": "vite",
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build",
+    "build": "vite build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
+    "preview": "vite preview",
     "serve:ssr:manga-explorer": "node dist/manga-explorer/server/server.mjs"
   },
   "private": true,
@@ -23,9 +26,10 @@
     "express": "^4.18.2",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
-    "zone.js": "~0.15.0"
+    "zone.js": "^0.15.0"
   },
   "devDependencies": {
+    "@analogjs/vite-plugin-angular": "^1.14.0",
     "@angular-devkit/build-angular": "^19.2.1",
     "@angular/cli": "^19.2.1",
     "@angular/compiler-cli": "^19.2.0",
@@ -38,6 +42,7 @@
     "karma-coverage": "~2.2.0",
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "~2.1.0",
-    "typescript": "~5.7.2"
+    "typescript": "~5.7.2",
+    "vite": "^6.2.1"
   }
 }
