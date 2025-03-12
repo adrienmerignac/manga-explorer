@@ -1,12 +1,22 @@
 <div class="manga-list">
-  <h2>Liste des Mangas</h2>
+  <h2>Liste des Meilleurs Mangas</h2>
+
   <div class="manga-grid">
     <div *ngFor="let manga of mangas" class="manga-card">
       <a [routerLink]="'/manga/' + manga.mal_id">
         <img [src]="manga.images.webp.image_url" [alt]="manga.title">
         <h3>{{ manga.title }}</h3>
       </a>
-      <p>{{ manga.synopsis }}</p>
+
+      <p><strong>Score :</strong> ⭐ {{ manga.score }}</p>
+
+      <p>
+        <strong>Synopsis :</strong> 
+        {{ expanded[manga.mal_id] ? manga.synopsis : getShortSynopsis(manga) }}
+        <span class="toggle-btn" (click)="toggleSynopsis(manga.mal_id)">
+          {{ expanded[manga.mal_id] ? 'Voir moins' : 'Voir plus...' }}
+        </span>
+      </p>
     </div>
   </div>
 </div>

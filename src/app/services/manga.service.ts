@@ -6,19 +6,23 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class MangaService {
-  private API_URL = 'https://api.jikan.moe/v4/manga';
+  private API_URL = 'https://api.jikan.moe/v4';
 
   constructor(private http: HttpClient) {}
 
   getMangas(): Observable<any> {
-    return this.http.get<any>(`${this.API_URL}`);
+    return this.http.get<any>(`${this.API_URL}/manga`);
   }
 
   getMangaDetails(id: number): Observable<any> {
-    return this.http.get<any>(`${this.API_URL}/${id}`);
+    return this.http.get<any>(`${this.API_URL}/manga/${id}`);
+  }
+
+  getTopMangas(): Observable<any> {
+    return this.http.get<any>(`${this.API_URL}/top/manga`);
   }
 
   searchMangas(query: string): Observable<any> {
-    return this.http.get<any>(`${this.API_URL}?q=${query}`);
+    return this.http.get<any>(`${this.API_URL}/manga?q=${query}`);
   }
 }
