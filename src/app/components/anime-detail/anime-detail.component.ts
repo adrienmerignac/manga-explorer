@@ -2,11 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { MangaService } from '../../services/manga.service';
+import { SafeUrlPipe } from '../../pipes/safe-url.pipe';
 
 @Component({
   selector: 'app-anime-detail',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, SafeUrlPipe],
   templateUrl: './anime-detail.component.html',
   styleUrls: ['./anime-detail.component.scss'],
 })
