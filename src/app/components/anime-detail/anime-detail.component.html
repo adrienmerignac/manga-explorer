@@ -1,0 +1,16 @@
+<div *ngIf="isLoading" class="loading">Chargement...</div>
+
+<div *ngIf="anime" class="anime-detail">
+  <h2>{{ anime.title }}</h2>
+  <img [src]="anime.images?.jpg?.image_url" [alt]="anime.title" />
+  <p><strong>Score:</strong> ⭐ {{ anime.score }}</p>
+  <p><strong>Episodes:</strong> {{ anime.episodes || "N/A" }}</p>
+  <p>
+    <strong>Synopsis:</strong>
+    {{ anime.synopsis || "Aucun synopsis disponible." }}
+  </p>
+
+  <a [href]="anime.url" target="_blank" class="more-info"
+    >Voir sur MyAnimeList</a
+  >
+</div>
