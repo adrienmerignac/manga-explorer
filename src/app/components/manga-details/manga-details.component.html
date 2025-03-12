@@ -1,13 +1,13 @@
 <div class="manga-details" *ngIf="manga">
-  <img [src]="manga.images.webp.image_url" [alt]="manga.title">
+  <img [src]="manga.images.webp.image_url" [alt]="manga.title" />
   <h1>{{ manga.title }}</h1>
   <p>{{ manga.synopsis }}</p>
-  <p><strong>Chapitres :</strong> {{ manga.chapters || 'Inconnu' }}</p>
-  <p><strong>Volumes :</strong> {{ manga.volumes || 'Inconnu' }}</p>
+  <p><strong>Chapitres :</strong> {{ manga.chapters || "Inconnu" }}</p>
+  <p><strong>Volumes :</strong> {{ manga.volumes || "Inconnu" }}</p>
   <p><strong>Score :</strong> ⭐ {{ manga.score }}</p>
 
   <button (click)="toggleFavorite()">
-    {{ isFavorite ? '❤️ Retirer des Favoris' : '🤍 Ajouter aux Favoris' }}
+    {{ isFavorite ? "❤️ Retirer des Favoris" : "🤍 Ajouter aux Favoris" }}
   </button>
 
   <a routerLink="/">🔙 Retour à la liste</a>

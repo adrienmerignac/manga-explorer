@@ -4,11 +4,12 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms'; // ✅ Ajout de FormsModule
 import { Manga } from '../../models/manga.models';
+import { TopAnimesComponent } from '../top-animes/top-animes.component';
 
 @Component({
   selector: 'app-manga-list',
   standalone: true,
-  imports: [CommonModule, RouterModule, FormsModule], // ✅ Ajout de FormsModule
+  imports: [CommonModule, RouterModule, FormsModule, TopAnimesComponent], // ✅ Ajout de FormsModule
   templateUrl: './manga-list.component.html',
   styleUrls: ['./manga-list.component.scss'],
 })

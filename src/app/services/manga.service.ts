@@ -30,6 +30,10 @@ export class MangaService {
     return this.http.get<any>(`${this.API_URL}/manga?genres=${genreId}`);
   }
 
+  getTopAnimes(page: number = 1): Observable<any> {
+    return this.http.get<any>(`${this.API_URL}/top/anime?page=${page}`);
+  }
+
   searchMangas(query: string): Observable<any> {
     return this.http.get<any>(`${this.API_URL}/manga?q=${query}`);
   }

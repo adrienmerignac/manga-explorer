@@ -1,0 +1,20 @@
+<h2>🎬 Les Meilleurs Animés</h2>
+
+<div class="carousel-container">
+  <button class="prev" (click)="prevSlide()">&#10094;</button>
+
+  <div
+    class="carousel"
+    [style.transform]="'translateX(-' + currentSlide * 100 + '%)'"
+  >
+    <div class="carousel-item" *ngFor="let anime of animes">
+      <a [routerLink]="['/anime', anime.mal_id]">
+        <img [src]="anime.images?.jpg?.image_url" [alt]="anime.title" />
+        <h3>{{ anime.title }}</h3>
+      </a>
+      <p>Score : ⭐ {{ anime.score }}</p>
+    </div>
+  </div>
+
+  <button class="next" (click)="nextSlide()">&#10095;</button>
+</div>
