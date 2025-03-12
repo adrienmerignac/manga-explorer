@@ -5,7 +5,7 @@ import { MangaListComponent } from '../../components/manga-list/manga-list.compo
   selector: 'app-home',
   standalone: true,
   imports: [MangaListComponent],
-  templateUrl: './Home.component.html',
-  styleUrls: ['./Home.component.scss'],
+  templateUrl: './home.component.html',
+  styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent {}

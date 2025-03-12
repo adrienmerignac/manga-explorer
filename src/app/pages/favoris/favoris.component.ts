@@ -5,8 +5,8 @@ import { CommonModule } from '@angular/common';
   selector: 'app-favoris',
   standalone: true,
   imports: [CommonModule],
-  templateUrl: './Favoris.component.html',
-  styleUrls: ['./Favoris.component.scss'],
+  templateUrl: './favoris.component.html',
+  styleUrls: ['./favoris.component.scss'],
 })
 export class FavorisComponent implements OnInit {
   favoris: any[] = [];
