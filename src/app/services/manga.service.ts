@@ -18,8 +18,8 @@ export class MangaService {
     return this.http.get<any>(`${this.API_URL}/manga/${id}`);
   }
 
-  getTopMangas(): Observable<any> {
-    return this.http.get<any>(`${this.API_URL}/top/manga`);
+  getTopMangas(page: number = 1): Observable<any> {
+    return this.http.get<any>(`${this.API_URL}/top/manga?page=${page}`);
   }
 
   searchMangas(query: string): Observable<any> {

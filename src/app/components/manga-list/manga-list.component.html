@@ -1,22 +1,22 @@
 <div class="manga-list">
-  <h2>Liste des Meilleurs Mangas</h2>
+  <h2>📚 Liste des Meilleurs Mangas</h2>
 
   <div class="manga-grid">
-    <div *ngFor="let manga of mangas" class="manga-card">
+    <div *ngFor="let manga of mangas" class="manga-card" [class.expanded]="expanded[manga.mal_id]">
       <a [routerLink]="'/manga/' + manga.mal_id">
         <img [src]="manga.images.webp.image_url" [alt]="manga.title">
-        <h3>{{ manga.title }}</h3>
       </a>
+      <h3><a [routerLink]="'/manga/' + manga.mal_id">{{ manga.title }}</a></h3>
+      <p><strong>⭐ Score :</strong> {{ manga.score }}</p>
 
-      <p><strong>Score :</strong> ⭐ {{ manga.score }}</p>
-
-      <p>
-        <strong>Synopsis :</strong> 
-        {{ expanded[manga.mal_id] ? manga.synopsis : getShortSynopsis(manga) }}
-        <span class="toggle-btn" (click)="toggleSynopsis(manga.mal_id)">
-          {{ expanded[manga.mal_id] ? 'Voir moins' : 'Voir plus...' }}
-        </span>
+      <p class="synopsis-container">
+        <strong>📖 Synopsis :</strong>
+        {{ expanded[manga.mal_id] ? manga.synopsis : manga.synopsis.substring(0, 150) + '...' }}
       </p>
     </div>
   </div>
+
+  <button (click)="loadMore()" class="load-more-btn" [disabled]="isLoading">
+    {{ isLoading ? 'Chargement...' : 'Charger plus' }}
+  </button>
 </div>

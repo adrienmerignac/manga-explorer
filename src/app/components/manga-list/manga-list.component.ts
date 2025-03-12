@@ -13,24 +13,26 @@ import { Manga } from '../../models/manga.models';
 })
 export class MangaListComponent implements OnInit {
   mangas: Manga[] = [];
-  expanded: { [key: number]: boolean } = {}; // ✅ Stocke l'état des synopsis affichés
+  expanded: { [key: number]: boolean } = {};
+  currentPage: number = 1; // ✅ Stocke la page actuelle
+  isLoading: boolean = false; // ✅ Indicateur de chargement
 
   constructor(private mangaService: MangaService) {}
 
   ngOnInit() {
-    this.mangaService.getTopMangas().subscribe((data) => {
-      console.log('Top Mangas', data.data);
-      this.mangas = data.data;
+    this.loadMangas();
+  }
+
+  loadMangas() {
+    this.isLoading = true;
+    this.mangaService.getTopMangas(this.currentPage).subscribe((data) => {
+      this.mangas = [...this.mangas, ...data.data]; // ✅ Ajoute les nouveaux mangas à la liste
+      this.isLoading = false;
     });
   }
 
-  toggleSynopsis(mangaId: number) {
-    this.expanded[mangaId] = !this.expanded[mangaId];
-  }
-
-  getShortSynopsis(manga: Manga): string {
-    return manga.synopsis.length > 150
-      ? manga.synopsis.substring(0, 150) + '...'
-      : manga.synopsis;
+  loadMore() {
+    this.currentPage++; // ✅ Passe à la page suivante
+    this.loadMangas(); // ✅ Charge la nouvelle page
   }
 }
