@@ -1,1 +1,12 @@
-<p>manga-list works!</p>
+<div class="manga-list">
+  <h2>Liste des Mangas</h2>
+  <div class="manga-grid">
+    <div *ngFor="let manga of mangas" class="manga-card">
+      <a [routerLink]="'/manga/' + manga.mal_id">
+        <img [src]="manga.images.webp.image_url" [alt]="manga.title">
+        <h3>{{ manga.title }}</h3>
+      </a>
+      <p>{{ manga.synopsis }}</p>
+    </div>
+  </div>
+</div>

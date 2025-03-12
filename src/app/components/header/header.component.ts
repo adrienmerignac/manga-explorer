@@ -1,10 +1,17 @@
 import { Component } from '@angular/core';
+import { RouterModule } from '@angular/router';
+import { CommonModule } from '@angular/common';
+import { SearchBarComponent } from '../search-bar/search-bar.component';
 
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [],
-  templateUrl: './header.component.html',
-  styleUrl: './header.component.scss',
+  imports: [RouterModule, CommonModule, SearchBarComponent], // ✅ Ajout du routing pour les liens
+  templateUrl: './Header.component.html',
+  styleUrls: ['./Header.component.scss'],
 })
-export class HeaderComponent {}
+export class HeaderComponent {
+  navigateToManga(mangaId: number) {
+    window.location.href = `/manga/${mangaId}`; // ✅ Redirige vers la page de détails
+  }
+}

@@ -1,4 +1,4 @@
-.manga-list {
+.favoris {
   text-align: center;
   padding: 20px;
 
@@ -25,13 +25,18 @@
       margin: 10px 0;
     }
 
-    p {
+    button {
+      background: red;
+      color: white;
+      border: none;
+      padding: 5px 10px;
+      cursor: pointer;
+      border-radius: 5px;
       font-size: 0.9rem;
-      color: #666;
-    }
 
-    &:hover {
-      transform: scale(1.05);
+      &:hover {
+        background: darkred;
+      }
     }
   }
 }

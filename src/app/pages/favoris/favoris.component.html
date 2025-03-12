@@ -1,0 +1,17 @@
+<div class="favoris">
+  <h2>❤️ Mes Mangas Favoris</h2>
+  <div *ngIf="favoris.length > 0; else noFavoris">
+    <div class="manga-grid">
+      <div *ngFor="let manga of favoris" class="manga-card">
+        <a [routerLink]="'/manga/' + manga.mal_id">
+          <img [src]="manga.images.webp.image_url" [alt]="manga.title">
+          <h3>{{ manga.title }}</h3>
+        </a>
+        <button (click)="removeFromFavorites(manga.mal_id)">❌ Retirer</button>
+      </div>
+    </div>
+  </div>
+  <ng-template #noFavoris>
+    <p>Aucun favori ajouté pour le moment.</p>
+  </ng-template>
+</div>

@@ -1,0 +1,25 @@
+<div class="search-bar">
+  <input
+  type="text"
+  placeholder="Rechercher un manga..."
+  (input)="onInputChange($event)"
+/>
+
+
+  @if (suggestions.length > 0) {
+    <div class="suggestions">
+      <ul>
+        @for (manga of suggestions; track manga.mal_id) {
+          <li (click)="selectManga(manga.mal_id)">
+            <img [src]="manga.images.webp.image_url" [alt]="manga.title">
+            <span>{{ manga.title }}</span>
+          </li>
+        }
+      </ul>
+    </div>
+  }
+
+  @if (isLoading) {
+    <p>Chargement...</p>
+  }
+</div>

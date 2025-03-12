@@ -1,1 +1,10 @@
-<p>header works!</p>
+<header class="header">
+  <div class="logo">
+    <a routerLink="/">📚 Manga Explorer</a>
+  </div>
+  <app-search-bar (selectedManga)="navigateToManga($event)"></app-search-bar>
+  <nav>
+    <a routerLink="/" routerLinkActive="active">🏠 Accueil</a>
+    <a routerLink="/favoris" routerLinkActive="active">❤️ Favoris</a>
+  </nav>
+</header>
