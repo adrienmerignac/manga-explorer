@@ -1,0 +1,18 @@
+<h2>🎬 Liste des Meilleurs Animés</h2>
+
+<div class="anime-list">
+  <div class="anime-grid">
+    <div *ngFor="let anime of animes" class="anime-card">
+      <a [routerLink]="['/anime', anime.mal_id]">
+        <img [src]="anime.images?.jpg?.image_url" [alt]="anime.title" />
+        <h3>{{ anime.title }}</h3>
+      </a>
+      <p>Score : ⭐ {{ anime.score }}</p>
+    </div>
+  </div>
+
+  <button *ngIf="!isLoading" (click)="loadMore()" class="load-more-btn">
+    Charger plus
+  </button>
+  <p *ngIf="isLoading" class="loading">Chargement...</p>
+</div>

@@ -75,7 +75,6 @@
   width: 100%;
 
   &:hover {
-    transform: scale(1.05);
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
   }
 
@@ -85,7 +84,7 @@
 
   img {
     width: 100%;
-    height: 220px; // 📱 Hauteur réduite en mobile
+    max-height: 350px;
     object-fit: cover;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
